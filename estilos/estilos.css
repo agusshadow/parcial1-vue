@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.router-link-exact-active {
+    color: rgb(174, 186, 40)!important;
+}
