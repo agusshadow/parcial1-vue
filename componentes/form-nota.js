@@ -5,7 +5,7 @@ Vue.component('form-nota', {
                 titulo: "",
                 categoria: "",
                 contenido: "",
-                estado: "pendiente",
+                destacado: false,
             }
         }
     },
@@ -28,7 +28,7 @@ Vue.component('form-nota', {
                             <textarea class="form-control" v-model="data.contenido"></textarea>
                         </div>
                         <div class="mb-3">
-                            <input type="submit" value="Guardar" class="btn btn-primary" @click="guardar()"></input>
+                            <input type="submit" value="Guardar" class="btn btn-primary" @click="guardar"></input>
                         </div>
                     </form>
                     <div v-if="data.titulo.length || data.categoria.length || data.contenido.length">

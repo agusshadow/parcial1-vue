@@ -119,3 +119,10 @@ li {
     /* background: linear-gradient( 263deg, rgba(252,74,74,1) 0%, rgba(0,212,255,1) 100% ); */
     background: var(--color-primary);
 }
+
+
+.destacado {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

@@ -2,35 +2,36 @@ Vue.component('nota', {
     props: ["data", "index"],
     data() {
         return {
-            
+        
         }   
     },
     template: ` <div class="mb-3 border">
-                    <div class="p-4 nota">
+                    <div class="p-4 position-relative">
                         <h3 class="h2">{{ data.titulo }}</h3>
-                        <h4 class="fs-6 mb-4">Categoria : {{ data.categoria }}</h4>
-                        <p class="">{{ data.contenido }}</p>
+                        <h4 class="fs-6 mb-4">{{ data.categoria }}</h4>
+                        <p class="text-secondary">{{ data.contenido }}</p>
+                        <input class="destacado" type="checkbox" @change="destacar" :checked="estaDestacado" />
                     </div>
                     <div class="d-flex text-center">
                         <div class="w-50 bg-warning text-white py-2">
-                            <a href="#" class="text-decoration-none text-white" @click="cambiarEstado()">{{ data.estado }}</a>
+                            <a href="#" class="text-decoration-none text-white">(Aca va a ir el estado)</a>
                         </div>
                         <div class="w-50 bg-danger text-white py-2">
-                            <a href="#" class="text-decoration-none text-white" @click="eliminar()">Eliminar</a>
+                            <a href="#" class="text-decoration-none text-white" @click="eliminar">Eliminar</a>
                         </div>
                     </div>
                 </div>`,
     methods: {
-        cambiarEstado() {
-            if (this.data.estado = "Pendiente") {
-                let local = JSON.parse(localStorage.getItem("notas"))
-                this.data.estado = "Terminada"
-                localStorage.notas = JSON.stringify(local)
+        destacar(e) {
+            let local = JSON.parse(localStorage.getItem("notas"))
+            let estado = e.target.checked
+            if (estado) {
+                local[this.index].destacado = true;
             } else {
-                let local = JSON.parse(localStorage.getItem("notas"))
-                this.data.estado = "Pendiente"
-                localStorage.notas = JSON.stringify(local)
+                local[this.index].destacado = false;
             }
+            localStorage.notas = JSON.stringify(local)
+            this.$emit("editarDestacado")
         },
         eliminar() {
             let local = JSON.parse(localStorage.getItem("notas"))
@@ -43,4 +44,9 @@ Vue.component('nota', {
             
         },
     },
+    computed: {
+        estaDestacado() {
+            return this.data.destacado
+        }
+    }
 })
