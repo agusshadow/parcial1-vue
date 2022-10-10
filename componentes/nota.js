@@ -7,18 +7,15 @@ Vue.component('nota', {
     },
     template: ` <div class="mb-3 border">
                     <div class="p-4 position-relative">
-                        <h3 class="h2">{{ data.titulo }}</h3>
-                        <h4 class="fs-6 mb-4">{{ data.categoria }}</h4>
-                        <p class="text-secondary">{{ data.contenido }}</p>
+                        <h3 class="h2">{{ data.titulo | capitalize}}</h3>
+                        <h4 class="fs-6 mb-4">{{ data.categoria | capitalize}}</h4>
+                        <p class="text-secondary">{{ data.contenido | capitalize}}</p>
+                        <p class="titulo text-end p-0" :style="estaPendiente == 'finalizada' ? 'color: green;' : 'color: rgb(245, 182, 66);'">{{ data.estado | capitalize}}</p>
                         <input class="destacado" type="checkbox" @change="destacar" :checked="estaDestacado" />
-                        <div class="pt-3" v-if="data.estado == 'finalizada'">
-                            <p class="fs-6 text-secondary m-0 d-inline-block">Nota finalizada, deseas eliminarla?</p>
-                            <a class="text-decoration-none text-danger d-inline-block" href="#" @click="eliminar">Eliminar.</a>
-                        </div>
                     </div>
                     <div class="d-flex text-center">
-                        <div class="w-50 text-white py-2" :style="estaPendiente == 'finalizada' ? 'background: green;' : 'background: rgb(245, 182, 66);'">
-                            <a href="#" class="text-decoration-none text-white" @click="cambiarEstado" >{{ data.estado }}</a>
+                        <div class="fondo-primario w-50 text-white py-2">
+                            <a href="#" class="text-decoration-none text-white" @click="cambiarEstado" >Cambiar estado</a>
                         </div>
                         <div class="bg-danger w-50 fondo-primario text-white py-2">
                             <a href="#" class="text-decoration-none text-white" @click="eliminar">Eliminar</a>
