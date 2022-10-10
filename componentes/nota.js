@@ -18,10 +18,10 @@ Vue.component('nota', {
                     </div>
                     <div class="d-flex text-center">
                         <div class="w-50 text-white py-2" :style="estaPendiente == 'finalizada' ? 'background: green;' : 'background: rgb(245, 182, 66);'">
-                            <a href="#" class="text-decoration-none text-white">{{ data.estado }}</a>
+                            <a href="#" class="text-decoration-none text-white" @click="cambiarEstado" >{{ data.estado }}</a>
                         </div>
-                        <div class="w-50 fondo-primario text-white py-2">
-                            <a href="#" class="text-decoration-none text-white" @click="cambiarEstado">Cambiar estado</a>
+                        <div class="bg-danger w-50 fondo-primario text-white py-2">
+                            <a href="#" class="text-decoration-none text-white" @click="eliminar">Eliminar</a>
                         </div>
                     </div>
                 </div>`,

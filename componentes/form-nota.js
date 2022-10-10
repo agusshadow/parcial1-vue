@@ -7,7 +7,13 @@ Vue.component('form-nota', {
                 contenido: "",
                 destacado: false,
                 estado: "pendiente"
-            }
+            },
+            errores: {
+                titulo: "",
+                categoria: "",
+                contenido: "",
+            },
+            mostrarErrores: false,
         }
     },
     template: ` <div>
@@ -15,18 +21,21 @@ Vue.component('form-nota', {
                         <div class="mb-3">
                             <label for="titulo" class="form-label">Titulo</label>
                             <input type="text" class="form-control" id="titulo" v-model="data.titulo">
+                            <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.titulo }}</p>
                         </div>
                         <div class="mb-3">
                             <label for="categoria" class="form-label">Categoria</label>
                             <select class="form-select" id="categoria" v-model="data.categoria">
-                                <option selected>Open this select menu</option>
+                                <option selected disabled>Selecciona una categoria</option>
                                 <option value="Hogar">Hogar</option>
                                 <option value="Actividades">Actividades</option>
                                 <option value="Escuela">Escuela</option>
                             </select>
+                            <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.categoria }}</p>
                         </div>
                         <div class="mb-3">
                             <textarea class="form-control" v-model="data.contenido"></textarea>
+                            <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.contenido }}</p>
                         </div>
                         <div class="mb-3">
                             <input type="submit" value="Guardar" class="btn btn-primary" @click="guardar"></input>
@@ -45,14 +54,41 @@ Vue.component('form-nota', {
                 </div>`,
     methods: {
         guardar() {
-            if (!localStorage.notas) {
-                localStorage.notas = JSON.stringify([this.data])   
+
+            if(!this.data.titulo) {
+                this.errores.titulo = "El titulo es obligatorio."
             } else {
-                let dataLocal = JSON.parse(localStorage.getItem("notas"))
-                dataLocal.push(this.data)
-                localStorage.notas = JSON.stringify(dataLocal)
+                this.errores.titulo = ""
             }
-            this.$router.push("/")
+
+            if (!this.data.categoria) {
+                this.errores.categoria = "Debes seleccionar una categoria."
+            } else {
+                this.errores.categoria = ""
+            }
+
+            if (!this.data.contenido) {
+                this.errores.contenido = "Este campo no puede quedar vacio."
+            } else {
+                this.errores.contenido = ""
+            }
+
+
+            if (!this.data.titulo.length || !this.data.categoria.length || !this.data.contenido.length) {
+                this.mostrarErrores = true
+            } else {
+                
+                if (!localStorage.notas) {
+                    localStorage.notas = JSON.stringify([this.data])   
+                } else {
+                    let dataLocal = JSON.parse(localStorage.getItem("notas"))
+                    dataLocal.push(this.data)
+                    localStorage.notas = JSON.stringify(dataLocal)
+                }
+                this.$router.push("/")
+
+            }
+
         },
     },
 })

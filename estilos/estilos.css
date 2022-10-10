@@ -9,13 +9,31 @@
     --color-primary: rgb(31, 176, 171);
 }
 
+/* LINK ACTIVOS ROUTER */
+
 .router-link-exact-active {
     color: var(--color-primary)!important;
 }
 
+/* GENERALES */
+
 .fondo-primario {
     background-color: var(--color-primary);
 }
+
+.titulo {
+    color: var(--color-primary);
+}
+
+li {
+    list-style: none;
+}
+
+textarea {
+    height: 250px;
+}
+
+/* BTN CREAR NOTA */
 
 .btn-nueva {
     background-image: url(../imagenes/mas.png);
@@ -35,15 +53,7 @@
     cursor: pointer;
 }
 
-li {
-    list-style: none;
-}
-
-.titulo {
-    color: var(--color-primary);
-}
-
-/* navbar */
+/* NABVAR */
 
 .navbar-toggler {
     width: 20px;
@@ -83,8 +93,6 @@ li {
     margin-top: 0px;
 }
 
-/* when navigation is clicked */
-
 .navbar-toggler .top-bar {
     margin-top: 0px;
     transform: rotate(135deg);
@@ -99,8 +107,6 @@ li {
     margin-top: 0px;
     transform: rotate(-135deg);
 }
-
-/* State when the navbar is collapsed */
 
 .navbar-toggler.collapsed .top-bar {
     margin-top: -20px;
@@ -117,23 +123,29 @@ li {
     transform: rotate(0deg);
 }
 
-/* Color of 3 lines */
-
 .navbar-toggler.collapsed .toggler-icon {
-    /* background: linear-gradient( 263deg, rgba(252,74,74,1) 0%, rgba(0,212,255,1) 100% ); */
     background: var(--color-primary);
 }
 
+
+/* CHECKBOX DESTACADO */
 
 .destacado {
     position: absolute;
     top: 10px;
     right: 10px;
+    cursor: pointer;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
 }
 
-
-
 .destacado:checked {
-    background-color: red;
-    color: red;
+    background-color: var(--color-primary);
 }
