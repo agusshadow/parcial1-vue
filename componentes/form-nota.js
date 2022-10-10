@@ -20,9 +20,9 @@ Vue.component('form-nota', {
                             <label for="categoria" class="form-label">Categoria</label>
                             <select class="form-select" id="categoria" v-model="data.categoria">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="Hogar">Hogar</option>
+                                <option value="Actividades">Actividades</option>
+                                <option value="Escuela">Escuela</option>
                             </select>
                         </div>
                         <div class="mb-3">

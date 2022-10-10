@@ -13,6 +13,10 @@
     color: var(--color-primary)!important;
 }
 
+.fondo-primario {
+    background-color: var(--color-primary);
+}
+
 .btn-nueva {
     background-image: url(../imagenes/mas.png);
     background-position: center center;
