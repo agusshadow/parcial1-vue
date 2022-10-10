@@ -13,7 +13,7 @@ Vue.component('nota', {
                         <input class="destacado" type="checkbox" @change="destacar" :checked="estaDestacado" />
                     </div>
                     <div class="d-flex text-center">
-                        <div class="w-50 bg-warning text-white py-2">
+                        <div class="w-50 text-white py-2" :style="estaPendiente == 'terminado' ? 'background: green;' : 'background: rgb(245, 182, 66);'">
                             <a href="#" class="text-decoration-none text-white" @click="cambiarEstado">{{ data.estado }}</a>
                         </div>
                         <div class="w-50 bg-danger text-white py-2">
@@ -56,6 +56,9 @@ Vue.component('nota', {
     computed: {
         estaDestacado() {
             return this.data.destacado
+        },
+        estaPendiente() {
+            return this.data.estado
         }
     }
 })
