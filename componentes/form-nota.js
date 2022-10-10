@@ -17,7 +17,7 @@ Vue.component('form-nota', {
         }
     },
     template: ` <div>
-                    <form @submit.prevent class="mb-5">
+                    <form @submit.prevent class="mb-5 form-nota">
                         <div class="mb-3">
                             <label for="titulo" class="form-label">Titulo</label>
                             <input type="text" class="form-control" id="titulo" v-model="data.titulo">
@@ -38,7 +38,7 @@ Vue.component('form-nota', {
                             <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.contenido }}</p>
                         </div>
                         <div class="mb-3">
-                            <input type="submit" value="Guardar" class="btn btn-primary" @click="guardar"></input>
+                            <input type="submit" value="Guardar" class="btn fondo-primario text-white" @click="guardar"></input>
                         </div>
                     </form>
                     <div v-if="data.titulo.length || data.categoria.length || data.contenido.length">

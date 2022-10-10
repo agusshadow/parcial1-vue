@@ -6,8 +6,8 @@ Vue.component('notas', {
         }   
     },
     template: ` <div>
-                    <h2 class="titulo my-4">Todas las notas</h2>
-                    <ul class="p-0 mb-5">
+                    <h2 class="titulo mt-4 mb-4">Todas las notas</h2>
+                    <ul class="p-0">
                         <li v-for="(nota, index) in local" v-if="nota.destacado">
                             <nota :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
                         </li>

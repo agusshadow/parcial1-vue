@@ -6,7 +6,7 @@ Vue.component('nota', {
         }   
     },
     template: ` <div class="mb-3 border">
-                    <div class="p-4 position-relative">
+                    <div class="p-4 pb-1 position-relative">
                         <h3 class="h2">{{ data.titulo | capitalize}}</h3>
                         <h4 class="fs-6 mb-4">{{ data.categoria | capitalize}}</h4>
                         <p class="text-secondary">{{ data.contenido | capitalize}}</p>

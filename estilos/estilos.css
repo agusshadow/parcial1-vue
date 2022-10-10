@@ -33,6 +33,24 @@ textarea {
     height: 250px;
 }
 
+.form-nota input:focus{
+    border: 2px solid var(--color-primary);
+    box-shadow: 5px 5px var(--color-primary);
+    transition: 0.3s;
+}
+
+.form-nota select:focus{
+    border: 2px solid var(--color-primary);
+    box-shadow: 5px 5px var(--color-primary);
+    transition: 0.3s;
+}
+
+.form-nota textarea:focus{
+    border: 2px solid var(--color-primary);
+    box-shadow: 5px 5px var(--color-primary);
+    transition: 0.3s;
+}
+
 /* BTN CREAR NOTA */
 
 .btn-nueva {
@@ -132,8 +150,8 @@ textarea {
 
 .destacado {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
     width: 1.3em;
     height: 1.3em;
