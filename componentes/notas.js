@@ -8,10 +8,10 @@ Vue.component('notas', {
     template: ` <div>
                     <ul class="p-0">
                         <li v-for="(nota, index) in local">
-                            <nota v-if="nota.destacado" :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal"></nota>
+                            <nota v-if="nota.destacado" :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
                         </li>
                         <li v-for="(nota, index) in local">
-                            <nota v-if="!nota.destacado"  :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal"></nota>
+                            <nota v-if="!nota.destacado"  :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
                         </li>
                     </ul>
                     <p>{{ this.vacio }}</p>

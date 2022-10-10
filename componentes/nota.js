@@ -14,7 +14,7 @@ Vue.component('nota', {
                     </div>
                     <div class="d-flex text-center">
                         <div class="w-50 bg-warning text-white py-2">
-                            <a href="#" class="text-decoration-none text-white">(Aca va a ir el estado)</a>
+                            <a href="#" class="text-decoration-none text-white" @click="cambiarEstado">{{ data.estado }}</a>
                         </div>
                         <div class="w-50 bg-danger text-white py-2">
                             <a href="#" class="text-decoration-none text-white" @click="eliminar">Eliminar</a>
@@ -33,6 +33,16 @@ Vue.component('nota', {
             localStorage.notas = JSON.stringify(local)
             this.$emit("editarDestacado")
         },
+        cambiarEstado() {
+            let local = JSON.parse(localStorage.getItem("notas"))
+            if (local[this.index].estado === "pendiente") {
+                local[this.index].estado = "terminado";
+            } else {
+                local[this.index].estado = "pendiente"
+            }
+            localStorage.notas = JSON.stringify(local)
+            this.$emit("editarEstado")
+        },
         eliminar() {
             let local = JSON.parse(localStorage.getItem("notas"))
             local.splice(1, this.index)
@@ -41,7 +51,6 @@ Vue.component('nota', {
             }
             localStorage.notas = JSON.stringify(local)
             this.$emit("eliminar")
-            
         },
     },
     computed: {

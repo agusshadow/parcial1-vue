@@ -6,6 +6,7 @@ Vue.component('form-nota', {
                 categoria: "",
                 contenido: "",
                 destacado: false,
+                estado: "pendiente"
             }
         }
     },
