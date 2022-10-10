@@ -11,9 +11,13 @@ Vue.component('nota', {
                         <h4 class="fs-6 mb-4">{{ data.categoria }}</h4>
                         <p class="text-secondary">{{ data.contenido }}</p>
                         <input class="destacado" type="checkbox" @change="destacar" :checked="estaDestacado" />
+                        <div class="" v-if="data.estado == 'finalizada'">
+                            <p class="fs-6 text-secondary m-0 d-inline-block">Nota finalizada, deseas eliminarla?</p>
+                            <a class="text-decoration-none text-danger d-inline-block" href="#" @click="eliminar">Eliminar.</a>
+                        </div>
                     </div>
                     <div class="d-flex text-center">
-                        <div class="w-50 text-white py-2" :style="estaPendiente == 'terminado' ? 'background: green;' : 'background: rgb(245, 182, 66);'">
+                        <div class="w-50 text-white py-2" :style="estaPendiente == 'finalizada' ? 'background: green;' : 'background: rgb(245, 182, 66);'">
                             <a href="#" class="text-decoration-none text-white" @click="cambiarEstado">{{ data.estado }}</a>
                         </div>
                         <div class="w-50 bg-danger text-white py-2">
@@ -36,7 +40,7 @@ Vue.component('nota', {
         cambiarEstado() {
             let local = JSON.parse(localStorage.getItem("notas"))
             if (local[this.index].estado === "pendiente") {
-                local[this.index].estado = "terminado";
+                local[this.index].estado = "finalizada";
             } else {
                 local[this.index].estado = "pendiente"
             }

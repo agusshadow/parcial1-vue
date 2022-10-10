@@ -37,7 +37,7 @@ Vue.component('form-nota', {
                         <div class="mb-3 border">
                             <div class="p-4">
                                 <h3 class="h2">{{ data.titulo }}</h3>
-                                <h4 class="fs-6 mb-4">Categoria : {{ data.categoria }}</h4>
+                                <h4 class="fs-6 mb-4">{{ data.categoria }}</h4>
                                 <p>{{ data.contenido }}</p>
                             </div>
                         </div>

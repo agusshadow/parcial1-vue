@@ -6,15 +6,15 @@ Vue.component('notas', {
         }   
     },
     template: ` <div>
-                    <ul class="p-0">
-                        <li v-for="(nota, index) in local">
-                            <nota v-if="nota.destacado" :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
+                    <h2 class="titulo my-4">Todas las notas</h2>
+                    <ul class="p-0 mb-5">
+                        <li v-for="(nota, index) in local" v-if="nota.destacado">
+                            <nota :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
                         </li>
-                        <li v-for="(nota, index) in local">
-                            <nota v-if="!nota.destacado"  :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
-                        </li>
+                        <li v-for="(nota, index) in local" v-if="!nota.destacado" >
+                            <nota :data="nota" :index="index" @eliminar="traerLocal" :key="index" @editarDestacado="traerLocal" @editarEstado="traerLocal"></nota>
+                        </li>                      
                     </ul>
-                    <p>{{ this.vacio }}</p>
                 </div>`,
     mounted() {
         this.traerLocal()
