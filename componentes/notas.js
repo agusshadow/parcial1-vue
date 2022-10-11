@@ -2,7 +2,6 @@ Vue.component('notas', {
     data() {
         return {
             local: [],
-            vacio: ""
         }   
     },
     template: ` <div>
@@ -21,9 +20,9 @@ Vue.component('notas', {
     },
     updated() {
         if (!this.local) {
-            this.$emit("no-data", "Crea nuevas notas!")
+            this.$emit("no-data", {texto:"Crea nuevas notas",ver: true})
         } else if (!this.local.length) {
-            this.$emit("no-data", "No hay notas que mostrar")
+            this.$emit("no-data", {texto:"No hay notas que mostrar",ver: true})
         }
     },
     methods: {
