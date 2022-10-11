@@ -1,15 +1,10 @@
 Vue.component('nota', {
     props: ["data", "index"],
-    data() {
-        return {
-        
-        }   
-    },
     template: ` <div class="mb-3 border">
                     <div class="p-4 pb-1 position-relative">
                         <h3 class="h2">{{ data.titulo | capitalize}}</h3>
                         <h4 class="fs-6 mb-4">{{ data.categoria | capitalize}}</h4>
-                        <p class="text-secondary">{{ data.contenido | capitalize}}</p>
+                        <p class="text-secondary">{{ data.contenido }}</p>
                         <p class="titulo text-end p-0" :style="estaPendiente == 'finalizada' ? 'color: green;' : 'color: rgb(245, 182, 66);'">{{ data.estado | capitalize}}</p>
                         <input class="destacado" type="checkbox" @change="destacar" :checked="estaDestacado" />
                     </div>

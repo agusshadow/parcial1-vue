@@ -20,7 +20,9 @@ Vue.component('notas', {
         this.traerLocal()
     },
     updated() {
-        if (!this.local.length) {
+        if (!this.local) {
+            this.$emit("no-data", "Crea nuevas notas!")
+        } else if (!this.local.length) {
             this.$emit("no-data", "No hay notas que mostrar")
         }
     },

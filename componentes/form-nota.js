@@ -21,7 +21,7 @@ Vue.component('form-nota', {
                         <div class="mb-3">
                             <label for="titulo" class="form-label">Titulo</label>
                             <input type="text" class="form-control" id="titulo" v-model="data.titulo">
-                            <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.titulo }}</p>
+                            <p class="text-danger mt-1 pt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.titulo }}</p>
                         </div>
                         <div class="mb-3">
                             <label for="categoria" class="form-label">Categoria</label>
@@ -31,11 +31,11 @@ Vue.component('form-nota', {
                                 <option value="Actividades">Actividades</option>
                                 <option value="Escuela">Escuela</option>
                             </select>
-                            <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.categoria }}</p>
+                            <p class="text-danger mt-1 pt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.categoria }}</p>
                         </div>
                         <div class="mb-3">
                             <textarea class="form-control" v-model="data.contenido"></textarea>
-                            <p class="text-danger mt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.contenido }}</p>
+                            <p class="text-danger mt-1 pt-1 fs-6" v-if="this.mostrarErrores">{{ this.errores.contenido }}</p>
                         </div>
                         <div class="mb-3">
                             <input type="submit" value="Guardar" class="btn fondo-primario text-white" @click="guardar"></input>

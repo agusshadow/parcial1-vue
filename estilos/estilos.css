@@ -9,13 +9,9 @@
     --color-primary: rgb(31, 176, 171);
 }
 
-/* LINK ACTIVOS ROUTER */
-
 .router-link-exact-active {
     color: var(--color-primary)!important;
 }
-
-/* GENERALES */
 
 .fondo-primario {
     background-color: var(--color-primary);
@@ -33,7 +29,11 @@ textarea {
     height: 250px;
 }
 
-.form-nota input:focus{
+.form-nota input[type="submit"]:focus{
+    background-color: var(--color-primary);
+}
+
+.form-nota input[type="text"]:focus{
     border: 2px solid var(--color-primary);
     box-shadow: 5px 5px var(--color-primary);
     transition: 0.3s;
@@ -50,8 +50,6 @@ textarea {
     box-shadow: 5px 5px var(--color-primary);
     transition: 0.3s;
 }
-
-/* BTN CREAR NOTA */
 
 .btn-nueva {
     background-image: url(../imagenes/mas.png);
@@ -70,8 +68,6 @@ textarea {
     overflow: hidden;
     cursor: pointer;
 }
-
-/* NABVAR */
 
 .navbar-toggler {
     width: 20px;
@@ -144,9 +140,6 @@ textarea {
 .navbar-toggler.collapsed .toggler-icon {
     background: var(--color-primary);
 }
-
-
-/* CHECKBOX DESTACADO */
 
 .destacado {
     position: absolute;
